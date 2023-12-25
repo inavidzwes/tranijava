@@ -1,0 +1,26 @@
+public static void traverseGraphInDepth(
+			final Graph graph, 
+			final Consumer<Node> callback
+) {
+	new Runnable() {
+		private final HashSet<Node> passedNodeSet = new HashSet<>();		
+
+		public void run() {
+			for(final Node startNode:graph.listStartNodes()){
+				stepToNode(startNode);
+			}	
+		}
+
+		void stepToNode(final Node node) {
+			if (passedNodeSet.contains(node)) {
+				return;
+			} else {
+				passedNodeSet.add(node);
+				callback.accept(node);
+				for(final Node nextNode:graph.listNextNodes(node)){
+					stepToNode(nextNode);
+				}
+			}
+		}
+	}.run(); 
+}
