@@ -1,0 +1,5 @@
+void processFile(final File file, FileProcessor fileProcessor) throws IOException {
+	try (final FileInputStream fileInputStream =  new FileInputStream(file)) {
+		fileProcessor.processFile(fileInputstream);
+	}
+}
