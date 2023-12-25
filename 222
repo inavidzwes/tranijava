@@ -1,0 +1,14 @@
+lic class MathExt {
+	public static class SumAndAverage {
+		private final long sum;
+		private final double average;
+	
+		public SumAndAverage(final long sum, final double average) {...}
+
+		public long getSum() {...}
+		public double getAverage() {...}
+	}
+
+	public static SumAndAverage computeSumAndAverage(final ImmutableList<Integer> valueList) {
+		...
+	} 
